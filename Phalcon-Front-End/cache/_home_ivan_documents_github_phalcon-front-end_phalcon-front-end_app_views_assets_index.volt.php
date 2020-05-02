@@ -1,4 +1,4 @@
-a:3:{i:0;s:490:"<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -12,10 +12,15 @@ a:3:{i:0;s:490:"<!DOCTYPE html>
     </head>
     <body>
         <div class="container">
-            ";s:7:"content";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:1:" ";s:4:"file";s:91:"/home/ivan/Documents/GitHub/Phalcon-Front-End/Phalcon-Front-End/app/views/layouts/base.volt";s:4:"line";i:15;}}i:1;s:156:"
+            
+
+    <div class="page-header">
+        <h2>Menambahkan assets.</h2>
+    </div>
+
+
         </div>
         <!-- jQuery first, then Popper.js, and then Bootstrap's JavaScript -->
         <?= $this->assets->outputJs() ?>
     </body>
 </html>
-";}
