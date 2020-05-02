@@ -13,10 +13,10 @@
     <body>
         <div class="container">
             <div class="page-header">
-                <h1>Css pertama</h1>
+                <h2>Assets Collection</h2>
             </div>
         </div>
         <!-- jQuery first, then Popper.js, and then Bootstrap's JavaScript -->
-        <?= $this->assets->outputJs() ?>
+        <!-- <?= $this->assets->outputJs() ?> -->
     </body>
 </html>

@@ -7,16 +7,17 @@
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Phalcon PHP Framework</title>
         
-        <?= $this->assets->outputCss() ?>
+        {{ assets.outputCss('cssGroup') }}
 
     </head>
     <body>
         <div class="container">
             <div class="page-header">
-                <h1>Css pertama</h1>
+                <h1>Css group</h1>
+                <h2>Menggunakan collection</h2>
             </div>
         </div>
         <!-- jQuery first, then Popper.js, and then Bootstrap's JavaScript -->
-        <?= $this->assets->outputJs() ?>
+        <!-- {{ assets.outputJs() }} -->
     </body>
 </html>

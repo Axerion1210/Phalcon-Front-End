@@ -7,16 +7,16 @@
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Phalcon PHP Framework</title>
         
-        <?= $this->assets->outputCss() ?>
+        <?php $this->assets->outputCss(); ?>
 
     </head>
     <body>
         <div class="container">
             <div class="page-header">
-                <h1>Css pertama</h1>
+                <h2>Css kedua</h2>
             </div>
         </div>
         <!-- jQuery first, then Popper.js, and then Bootstrap's JavaScript -->
-        <?= $this->assets->outputJs() ?>
+        <?php $this->assets->outputJs(); ?>
     </body>
 </html>

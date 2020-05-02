@@ -1,1 +1,1 @@
-alert('Test1');
+alert('Ini Js pertama');
