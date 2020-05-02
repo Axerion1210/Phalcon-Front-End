@@ -14,8 +14,14 @@ use Phalcon\Url as UrlResolver;
 /**
  * Shared configuration service
  */
-$di->setShared('config', function () {
-    return include APP_PATH . "/config/config.php";
+$di->setShared('config', function () use ($config) {
+    return $config;
+});
+
+$di->setShared('request_uri', function (){
+    $config = $this->getConfig();
+    return $config->application->baseUri == '/' ?
+        $_SERVER['REQUEST_URI'] : str_replace($config->application->baseUri, '', $_SERVER['REQUEST_URI']);
 });
 
 /**
@@ -48,7 +54,9 @@ $di->setShared('view', function () {
 
             $volt->setOptions([
                 'path' => $config->application->cacheDir,
-                'separator' => '_'
+                'separator' => '_',
+                'stat' => true,
+                'Always' => true
             ]);
 
             return $volt;
@@ -119,4 +127,34 @@ $di->setShared('session', function () {
     $session->start();
 
     return $session;
+});
+
+$di->setShared('dispatcher', function() {
+
+    $eventsManager = new \Phalcon\Events\Manager();
+
+    $eventsManager->attach(
+        'dispatch:beforeException',
+        function (Event $event, \Phalcon\Mvc\Dispatcher $dispatcher, Exception $exception) {
+            // 404
+            if ($exception instanceof \Phalcon\Dispatcher\Exception) {
+                $dispatcher->forward(
+                    [
+                        'controller' => 'error',
+                        'action'     => 'notFound',
+                    ]
+                );
+
+                return false;
+            }
+        }
+    );
+
+    $dispatcher = new \Phalcon\Mvc\Dispatcher();
+
+    //Bind the EventsManager to the dispatcher
+    $dispatcher->setEventsManager($eventsManager);
+
+    return $dispatcher;
+
 });
