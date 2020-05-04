@@ -48,3 +48,9 @@ $router->notFound([
 ]);
 
 $router->handle($di->get('request_uri'));
+
+$router->add('/dashboard', [
+    'namespace' => 'App\Controllers',
+    'controller' =>  'flash',
+    'action' =>  'dashboard',
+]);
