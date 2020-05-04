@@ -41,6 +41,9 @@ class AssetsController extends \Phalcon\Mvc\Controller
             ->addInlineCss($css1)
             ->addInlineJs($js1)
         ;
+
+        // $this->assets->addInlineCss($css1);
+        // $this->assets->addInlineJs($js1);
     }
 }
 
